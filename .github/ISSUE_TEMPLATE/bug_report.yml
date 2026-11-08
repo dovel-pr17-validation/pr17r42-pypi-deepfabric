@@ -1,0 +1,118 @@
+name: Bug report
+description: Something isn't working as expected
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. The more detail you can give us, the faster we can fix it.
+        
+        **Remove any API keys before posting.**
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of what went wrong.
+      placeholder: "When I run `deepfabric generate config.yaml`, it exits with..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      placeholder: "I expected a dataset to be generated at the output path specified..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps to reproduce. Include the exact command or config you used.
+      placeholder: |
+        1. Create config.yaml with...
+        2. Run `deepfabric generate config.yaml`
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Config file or CLI command
+      description: Paste your config.yaml or the exact CLI command you ran. Remove any API keys before posting.
+      render: yaml
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output or logs
+      description: Paste any error messages or stack traces here.
+      render: shell
+
+  - type: input
+    id: deepfabric-version
+    attributes:
+      label: DeepFabric version
+      placeholder: "e.g. 0.3.1 — run `deepfabric info`"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: LLM provider
+      options:
+        - OpenAI
+        - Anthropic
+        - Google Gemini
+        - Ollama (local)
+        - Other (specify in additional context)
+    validations:
+      required: true
+
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      placeholder: "e.g. gpt-4o, claude-3.5-sonnet, gemini-1.5-flash"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: dataset-type
+    attributes:
+      label: Dataset type
+      options:
+        - Basic
+        - Reasoning
+        - Agent
+        - Not applicable
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      placeholder: "e.g. 3.11.4 — run `python --version`"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Other (specify in additional context)
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else that might be relevant — install method, environment (venv, conda, uv), or what you were trying to generate.

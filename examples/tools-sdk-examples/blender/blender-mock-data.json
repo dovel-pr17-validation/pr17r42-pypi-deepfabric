@@ -1,0 +1,1267 @@
+{
+  "description": "Comprehensive Blender MCP mock data for testing tool execution with 3D design assistant scenarios",
+  "version": "2.0.0",
+  "mockResponses": {
+    "get_scene_info": {
+      "defaultResponse": {
+        "name": "Project_Scene",
+        "objects": [
+          {"name": "Cube", "type": "MESH"},
+          {"name": "Sphere", "type": "MESH"},
+          {"name": "Plane", "type": "MESH"},
+          {"name": "Camera", "type": "CAMERA"},
+          {"name": "Light", "type": "LIGHT"}
+        ],
+        "activeObject": "Cube",
+        "renderEngine": "CYCLES",
+        "renderSettings": {
+          "resolution": {"x": 1920, "y": 1080},
+          "samples": 128,
+          "denoising": true
+        },
+        "worldSettings": {
+          "backgroundColor": {"r": 0.05, "g": 0.05, "b": 0.05}
+        },
+        "frameRange": {"start": 1, "end": 250, "current": 1},
+        "units": "METRIC"
+      }
+    },
+    "get_object_info": {
+      "defaultResponse": {
+        "error": "Object not found in scene",
+        "suggestion": "Use get_scene_info to list available objects"
+      }
+    },
+    "get_viewport_screenshot": {
+      "defaultResponse": {
+        "success": true,
+        "format": "PNG",
+        "resolution": {"width": 1920, "height": 1080},
+        "size": 2457600
+      }
+    },
+    "execute_blender_code": {
+      "defaultResponse": {
+        "success": true,
+        "output": "",
+        "executionTime": 0.05
+      }
+    },
+    "get_polyhaven_categories": {
+      "defaultResponse": {
+        "categories": [
+          {"name": "architectural", "count": 245},
+          {"name": "fabric", "count": 89},
+          {"name": "floor", "count": 156},
+          {"name": "ground", "count": 178},
+          {"name": "metal", "count": 134},
+          {"name": "nature", "count": 267},
+          {"name": "rock", "count": 98},
+          {"name": "wood", "count": 201}
+        ]
+      }
+    },
+    "search_polyhaven_assets": {
+      "defaultResponse": {
+        "results": [
+          {
+            "id": "generic_texture_001",
+            "name": "Generic Texture",
+            "category": "misc",
+            "tags": ["texture", "material"],
+            "downloads": 50000,
+            "resolution": "4K"
+          }
+        ],
+        "totalCount": 1
+      }
+    },
+    "download_polyhaven_asset": {
+      "defaultResponse": {
+        "success": true,
+        "imported": true
+      }
+    },
+    "set_texture": {
+      "defaultResponse": {
+        "success": true,
+        "materialCreated": true
+      }
+    },
+    "get_polyhaven_status": {
+      "defaultResponse": {
+        "enabled": true,
+        "apiConnected": true,
+        "cacheDirectory": "/tmp/polyhaven_cache",
+        "cachedAssets": 15
+      }
+    },
+    "get_hyper3d_status": {
+      "defaultResponse": {
+        "enabled": true,
+        "apiKeyConfigured": true,
+        "apiVersion": "2.0",
+        "remainingCredits": 500
+      }
+    },
+    "get_sketchfab_status": {
+      "defaultResponse": {
+        "enabled": true,
+        "apiKeyConfigured": true,
+        "apiVersion": "3.0",
+        "authenticated": true,
+        "username": "blender_user"
+      }
+    },
+    "search_sketchfab_models": {
+      "defaultResponse": {
+        "results": [
+          {
+            "uid": "generic_model_001",
+            "name": "3D Model",
+            "author": "artist",
+            "license": "CC-BY-4.0",
+            "polyCount": 10000,
+            "downloadable": true
+          }
+        ],
+        "totalCount": 1
+      }
+    },
+    "download_sketchfab_model": {
+      "defaultResponse": {
+        "success": true,
+        "imported": true,
+        "objectCount": 1
+      }
+    },
+    "generate_hyper3d_model_via_text": {
+      "defaultResponse": {
+        "success": true,
+        "jobId": "rodin_job_001",
+        "status": "processing",
+        "estimatedTime": 120
+      }
+    },
+    "generate_hyper3d_model_via_images": {
+      "defaultResponse": {
+        "success": true,
+        "jobId": "rodin_img_job_001",
+        "status": "processing",
+        "estimatedTime": 180
+      }
+    },
+    "poll_rodin_job_status": {
+      "defaultResponse": {
+        "status": "completed",
+        "progress": 100,
+        "modelReady": true
+      }
+    },
+    "import_generated_asset": {
+      "defaultResponse": {
+        "success": true,
+        "objectName": "Generated_Asset",
+        "vertices": 15000,
+        "faces": 12000,
+        "imported": true
+      }
+    },
+    "get_hunyuan3d_status": {
+      "defaultResponse": {
+        "enabled": true,
+        "apiConfigured": true,
+        "apiVersion": "1.0",
+        "modelVersion": "hunyuan3d-2.0"
+      }
+    },
+    "generate_hunyuan3d_model": {
+      "defaultResponse": {
+        "success": true,
+        "jobId": "hunyuan_job_001",
+        "status": "processing",
+        "estimatedTime": 90
+      }
+    },
+    "poll_hunyuan_job_status": {
+      "defaultResponse": {
+        "status": "completed",
+        "progress": 100,
+        "modelReady": true
+      }
+    },
+    "import_generated_asset_hunyuan": {
+      "defaultResponse": {
+        "success": true,
+        "objectName": "Hunyuan_Asset",
+        "vertices": 8000,
+        "faces": 6500,
+        "imported": true
+      }
+    }
+  },
+  "fixtures": {
+    "get_scene_info": [
+      {
+        "match": {},
+        "response": {
+          "name": "ArchViz_Interior",
+          "objects": [
+            {"name": "Room", "type": "MESH"},
+            {"name": "Floor", "type": "MESH"},
+            {"name": "Wall", "type": "MESH"},
+            {"name": "Ceiling", "type": "MESH"},
+            {"name": "Sofa", "type": "MESH"},
+            {"name": "Coffee_Table", "type": "MESH"},
+            {"name": "Dining_Table", "type": "MESH"},
+            {"name": "Chair", "type": "MESH"},
+            {"name": "Desk", "type": "MESH"},
+            {"name": "Bookshelf", "type": "MESH"},
+            {"name": "TV_Stand", "type": "MESH"},
+            {"name": "Bed", "type": "MESH"},
+            {"name": "Nightstand", "type": "MESH"},
+            {"name": "Wardrobe", "type": "MESH"},
+            {"name": "Floor_Lamp", "type": "MESH"},
+            {"name": "Table_Lamp", "type": "MESH"},
+            {"name": "Ceiling_Light", "type": "MESH"},
+            {"name": "Rug", "type": "MESH"},
+            {"name": "Curtains", "type": "MESH"},
+            {"name": "Window", "type": "MESH"},
+            {"name": "Door", "type": "MESH"},
+            {"name": "Plant", "type": "MESH"},
+            {"name": "Vase", "type": "MESH"},
+            {"name": "Picture_Frame", "type": "MESH"},
+            {"name": "Mirror", "type": "MESH"},
+            {"name": "Cube", "type": "MESH"},
+            {"name": "Sphere", "type": "MESH"},
+            {"name": "Cylinder", "type": "MESH"},
+            {"name": "Plane", "type": "MESH"},
+            {"name": "Character", "type": "MESH"},
+            {"name": "Sun", "type": "LIGHT"},
+            {"name": "Area_Light", "type": "LIGHT"},
+            {"name": "Camera", "type": "CAMERA"}
+          ],
+          "activeObject": "Sofa",
+          "renderEngine": "CYCLES",
+          "renderSettings": {
+            "resolution": {"x": 3840, "y": 2160},
+            "samples": 512,
+            "denoising": true,
+            "denoisingAlgorithm": "OPENIMAGEDENOISE"
+          },
+          "worldSettings": {
+            "backgroundColor": {"r": 0.8, "g": 0.85, "b": 0.9},
+            "hdriEnabled": true,
+            "hdriPath": "/textures/interior_hdri.exr"
+          },
+          "frameRange": {"start": 1, "end": 250, "current": 1},
+          "units": "METRIC",
+          "unitScale": 1.0
+        }
+      }
+    ],
+    "get_object_info": [
+      {
+        "match": {"object_name": "Cube"},
+        "response": {
+          "name": "Cube",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 2.0, "y": 2.0, "z": 2.0},
+          "vertices": 8,
+          "edges": 12,
+          "faces": 6,
+          "materials": [
+            {"name": "Cube_Material", "type": "PRINCIPLED", "baseColor": {"r": 0.8, "g": 0.8, "b": 0.8}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Sphere"},
+        "response": {
+          "name": "Sphere",
+          "type": "MESH",
+          "location": {"x": 3.0, "y": 0.0, "z": 1.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 2.0, "y": 2.0, "z": 2.0},
+          "vertices": 482,
+          "edges": 960,
+          "faces": 480,
+          "materials": [
+            {"name": "Sphere_Material", "type": "PRINCIPLED", "baseColor": {"r": 0.2, "g": 0.5, "b": 0.8}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Cylinder"},
+        "response": {
+          "name": "Cylinder",
+          "type": "MESH",
+          "location": {"x": -2.0, "y": 2.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 2.0, "y": 2.0, "z": 2.0},
+          "vertices": 64,
+          "edges": 96,
+          "faces": 34,
+          "materials": [
+            {"name": "Cylinder_Material", "type": "PRINCIPLED", "baseColor": {"r": 0.6, "g": 0.3, "b": 0.1}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Plane"},
+        "response": {
+          "name": "Plane",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": 0.0, "z": -1.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 10.0, "y": 10.0, "z": 1.0},
+          "dimensions": {"x": 20.0, "y": 20.0, "z": 0.0},
+          "vertices": 4,
+          "edges": 4,
+          "faces": 1,
+          "materials": [
+            {"name": "Ground_Material", "type": "PRINCIPLED", "baseColor": {"r": 0.4, "g": 0.4, "b": 0.4}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Floor"},
+        "response": {
+          "name": "Floor",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 5.0, "y": 5.0, "z": 1.0},
+          "dimensions": {"x": 10.0, "y": 10.0, "z": 0.1},
+          "vertices": 4,
+          "edges": 4,
+          "faces": 1,
+          "materials": [
+            {"name": "Floor_Wood", "type": "PRINCIPLED", "baseColor": {"r": 0.35, "g": 0.2, "b": 0.1}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Wall"},
+        "response": {
+          "name": "Wall",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": -5.0, "z": 1.5},
+          "rotation": {"x": 1.5708, "y": 0.0, "z": 0.0},
+          "scale": {"x": 5.0, "y": 3.0, "z": 1.0},
+          "dimensions": {"x": 10.0, "y": 0.2, "z": 3.0},
+          "vertices": 8,
+          "edges": 12,
+          "faces": 6,
+          "materials": [
+            {"name": "Wall_Paint", "type": "PRINCIPLED", "baseColor": {"r": 0.95, "g": 0.95, "b": 0.92}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Ceiling"},
+        "response": {
+          "name": "Ceiling",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": 0.0, "z": 3.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 5.0, "y": 5.0, "z": 1.0},
+          "dimensions": {"x": 10.0, "y": 10.0, "z": 0.1},
+          "vertices": 4,
+          "edges": 4,
+          "faces": 1,
+          "materials": [
+            {"name": "Ceiling_White", "type": "PRINCIPLED", "baseColor": {"r": 1.0, "g": 1.0, "b": 1.0}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Sofa"},
+        "response": {
+          "name": "Sofa",
+          "type": "MESH",
+          "location": {"x": 2.5, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 1.5708},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 2.2, "y": 0.9, "z": 0.85},
+          "vertices": 45678,
+          "edges": 91234,
+          "faces": 45000,
+          "materials": [
+            {"name": "Sofa_Fabric", "type": "PRINCIPLED", "baseColor": {"r": 0.15, "g": 0.25, "b": 0.35}},
+            {"name": "Sofa_Legs", "type": "PRINCIPLED", "baseColor": {"r": 0.1, "g": 0.08, "b": 0.05}, "metallic": 0.0}
+          ],
+          "modifiers": [
+            {"name": "Subdivision", "type": "SUBSURF", "levels": 2}
+          ],
+          "visible": true,
+          "selected": true,
+          "parentObject": null,
+          "boundingBox": {
+            "min": {"x": 1.4, "y": -0.45, "z": 0.0},
+            "max": {"x": 3.6, "y": 0.45, "z": 0.85}
+          }
+        }
+      },
+      {
+        "match": {"object_name": "Coffee_Table"},
+        "response": {
+          "name": "Coffee_Table",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 1.2, "y": 0.6, "z": 0.45},
+          "vertices": 12456,
+          "edges": 24800,
+          "faces": 12300,
+          "materials": [
+            {"name": "Table_Top_Wood", "type": "PRINCIPLED", "baseColor": {"r": 0.25, "g": 0.15, "b": 0.1}},
+            {"name": "Table_Legs_Metal", "type": "PRINCIPLED", "baseColor": {"r": 0.02, "g": 0.02, "b": 0.02}, "metallic": 1.0}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Dining_Table"},
+        "response": {
+          "name": "Dining_Table",
+          "type": "MESH",
+          "location": {"x": -3.0, "y": 2.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 1.8, "y": 0.9, "z": 0.75},
+          "vertices": 8500,
+          "edges": 17000,
+          "faces": 8400,
+          "materials": [
+            {"name": "Dining_Table_Wood", "type": "PRINCIPLED", "baseColor": {"r": 0.3, "g": 0.18, "b": 0.08}},
+            {"name": "Dining_Table_Legs", "type": "PRINCIPLED", "baseColor": {"r": 0.25, "g": 0.15, "b": 0.06}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Chair"},
+        "response": {
+          "name": "Chair",
+          "type": "MESH",
+          "location": {"x": -3.0, "y": 1.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.5, "y": 0.5, "z": 0.9},
+          "vertices": 6200,
+          "edges": 12400,
+          "faces": 6100,
+          "materials": [
+            {"name": "Chair_Seat", "type": "PRINCIPLED", "baseColor": {"r": 0.6, "g": 0.55, "b": 0.5}},
+            {"name": "Chair_Frame", "type": "PRINCIPLED", "baseColor": {"r": 0.2, "g": 0.12, "b": 0.05}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Desk"},
+        "response": {
+          "name": "Desk",
+          "type": "MESH",
+          "location": {"x": 4.0, "y": -3.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 1.4, "y": 0.7, "z": 0.75},
+          "vertices": 15000,
+          "edges": 30000,
+          "faces": 14800,
+          "materials": [
+            {"name": "Desk_Surface", "type": "PRINCIPLED", "baseColor": {"r": 0.22, "g": 0.18, "b": 0.15}},
+            {"name": "Desk_Drawers", "type": "PRINCIPLED", "baseColor": {"r": 0.2, "g": 0.16, "b": 0.12}},
+            {"name": "Desk_Legs", "type": "PRINCIPLED", "baseColor": {"r": 0.1, "g": 0.1, "b": 0.1}, "metallic": 0.8}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Bookshelf"},
+        "response": {
+          "name": "Bookshelf",
+          "type": "MESH",
+          "location": {"x": -4.5, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 1.5708},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 1.0, "y": 0.35, "z": 2.0},
+          "vertices": 18000,
+          "edges": 36000,
+          "faces": 17800,
+          "materials": [
+            {"name": "Bookshelf_Wood", "type": "PRINCIPLED", "baseColor": {"r": 0.28, "g": 0.2, "b": 0.12}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "TV_Stand"},
+        "response": {
+          "name": "TV_Stand",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": -4.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 1.6, "y": 0.45, "z": 0.5},
+          "vertices": 8000,
+          "edges": 16000,
+          "faces": 7900,
+          "materials": [
+            {"name": "TV_Stand_Body", "type": "PRINCIPLED", "baseColor": {"r": 0.1, "g": 0.1, "b": 0.1}},
+            {"name": "TV_Stand_Shelf", "type": "PRINCIPLED", "baseColor": {"r": 0.15, "g": 0.15, "b": 0.15}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Bed"},
+        "response": {
+          "name": "Bed",
+          "type": "MESH",
+          "location": {"x": 5.0, "y": 3.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 2.0, "y": 1.6, "z": 0.6},
+          "vertices": 35000,
+          "edges": 70000,
+          "faces": 34500,
+          "materials": [
+            {"name": "Bed_Frame", "type": "PRINCIPLED", "baseColor": {"r": 0.25, "g": 0.18, "b": 0.1}},
+            {"name": "Bed_Mattress", "type": "PRINCIPLED", "baseColor": {"r": 0.95, "g": 0.95, "b": 0.95}},
+            {"name": "Bed_Sheets", "type": "PRINCIPLED", "baseColor": {"r": 0.85, "g": 0.88, "b": 0.92}},
+            {"name": "Bed_Pillows", "type": "PRINCIPLED", "baseColor": {"r": 0.98, "g": 0.98, "b": 0.98}}
+          ],
+          "modifiers": [
+            {"name": "Subdivision", "type": "SUBSURF", "levels": 1}
+          ],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Nightstand"},
+        "response": {
+          "name": "Nightstand",
+          "type": "MESH",
+          "location": {"x": 6.2, "y": 3.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.5, "y": 0.4, "z": 0.55},
+          "vertices": 4500,
+          "edges": 9000,
+          "faces": 4400,
+          "materials": [
+            {"name": "Nightstand_Wood", "type": "PRINCIPLED", "baseColor": {"r": 0.25, "g": 0.18, "b": 0.1}},
+            {"name": "Nightstand_Handles", "type": "PRINCIPLED", "baseColor": {"r": 0.7, "g": 0.65, "b": 0.5}, "metallic": 1.0}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Wardrobe"},
+        "response": {
+          "name": "Wardrobe",
+          "type": "MESH",
+          "location": {"x": 5.0, "y": 4.8, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 1.8, "y": 0.6, "z": 2.2},
+          "vertices": 12000,
+          "edges": 24000,
+          "faces": 11800,
+          "materials": [
+            {"name": "Wardrobe_Body", "type": "PRINCIPLED", "baseColor": {"r": 0.9, "g": 0.88, "b": 0.85}},
+            {"name": "Wardrobe_Doors", "type": "PRINCIPLED", "baseColor": {"r": 0.88, "g": 0.86, "b": 0.82}},
+            {"name": "Wardrobe_Handles", "type": "PRINCIPLED", "baseColor": {"r": 0.75, "g": 0.75, "b": 0.75}, "metallic": 1.0}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Floor_Lamp"},
+        "response": {
+          "name": "Floor_Lamp",
+          "type": "MESH",
+          "location": {"x": 3.5, "y": 1.5, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.4, "y": 0.4, "z": 1.8},
+          "vertices": 8234,
+          "edges": 16400,
+          "faces": 8100,
+          "materials": [
+            {"name": "Lamp_Base_Metal", "type": "PRINCIPLED", "baseColor": {"r": 0.8, "g": 0.7, "b": 0.5}, "metallic": 1.0},
+            {"name": "Lamp_Shade_Fabric", "type": "PRINCIPLED", "baseColor": {"r": 0.95, "g": 0.92, "b": 0.85}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false,
+          "children": [
+            {"name": "Lamp_Light", "type": "LIGHT"}
+          ]
+        }
+      },
+      {
+        "match": {"object_name": "Table_Lamp"},
+        "response": {
+          "name": "Table_Lamp",
+          "type": "MESH",
+          "location": {"x": 6.2, "y": 3.0, "z": 0.55},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.25, "y": 0.25, "z": 0.45},
+          "vertices": 3200,
+          "edges": 6400,
+          "faces": 3100,
+          "materials": [
+            {"name": "Table_Lamp_Base", "type": "PRINCIPLED", "baseColor": {"r": 0.15, "g": 0.12, "b": 0.1}},
+            {"name": "Table_Lamp_Shade", "type": "PRINCIPLED", "baseColor": {"r": 0.92, "g": 0.9, "b": 0.85}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Ceiling_Light"},
+        "response": {
+          "name": "Ceiling_Light",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": 0.0, "z": 2.9},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.6, "y": 0.6, "z": 0.3},
+          "vertices": 5000,
+          "edges": 10000,
+          "faces": 4900,
+          "materials": [
+            {"name": "Ceiling_Light_Metal", "type": "PRINCIPLED", "baseColor": {"r": 0.85, "g": 0.85, "b": 0.85}, "metallic": 1.0},
+            {"name": "Ceiling_Light_Glass", "type": "PRINCIPLED", "baseColor": {"r": 1.0, "g": 1.0, "b": 1.0}, "transmission": 0.9}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Rug"},
+        "response": {
+          "name": "Rug",
+          "type": "MESH",
+          "location": {"x": 1.0, "y": 0.0, "z": 0.01},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 2.5, "y": 1.8, "z": 0.02},
+          "vertices": 10000,
+          "edges": 20000,
+          "faces": 9800,
+          "materials": [
+            {"name": "Rug_Fabric", "type": "PRINCIPLED", "baseColor": {"r": 0.6, "g": 0.55, "b": 0.45}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Curtains"},
+        "response": {
+          "name": "Curtains",
+          "type": "MESH",
+          "location": {"x": -4.8, "y": 0.0, "z": 1.5},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.1, "y": 2.0, "z": 2.5},
+          "vertices": 25000,
+          "edges": 50000,
+          "faces": 24500,
+          "materials": [
+            {"name": "Curtain_Fabric", "type": "PRINCIPLED", "baseColor": {"r": 0.85, "g": 0.82, "b": 0.75}}
+          ],
+          "modifiers": [
+            {"name": "Cloth", "type": "CLOTH"}
+          ],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Window"},
+        "response": {
+          "name": "Window",
+          "type": "MESH",
+          "location": {"x": -4.9, "y": 0.0, "z": 1.5},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.1, "y": 1.5, "z": 1.8},
+          "vertices": 200,
+          "edges": 400,
+          "faces": 180,
+          "materials": [
+            {"name": "Window_Frame", "type": "PRINCIPLED", "baseColor": {"r": 0.9, "g": 0.9, "b": 0.9}},
+            {"name": "Window_Glass", "type": "PRINCIPLED", "baseColor": {"r": 0.95, "g": 0.98, "b": 1.0}, "transmission": 0.95}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Door"},
+        "response": {
+          "name": "Door",
+          "type": "MESH",
+          "location": {"x": 4.9, "y": -2.0, "z": 1.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.05, "y": 0.9, "z": 2.1},
+          "vertices": 120,
+          "edges": 240,
+          "faces": 100,
+          "materials": [
+            {"name": "Door_Wood", "type": "PRINCIPLED", "baseColor": {"r": 0.3, "g": 0.22, "b": 0.15}},
+            {"name": "Door_Handle", "type": "PRINCIPLED", "baseColor": {"r": 0.8, "g": 0.75, "b": 0.6}, "metallic": 1.0}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Plant"},
+        "response": {
+          "name": "Plant",
+          "type": "MESH",
+          "location": {"x": 3.8, "y": -3.5, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.6, "y": 0.6, "z": 1.2},
+          "vertices": 45000,
+          "edges": 90000,
+          "faces": 44000,
+          "materials": [
+            {"name": "Plant_Leaves", "type": "PRINCIPLED", "baseColor": {"r": 0.15, "g": 0.4, "b": 0.1}},
+            {"name": "Plant_Pot", "type": "PRINCIPLED", "baseColor": {"r": 0.5, "g": 0.35, "b": 0.25}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Vase"},
+        "response": {
+          "name": "Vase",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": 0.0, "z": 0.45},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.15, "y": 0.15, "z": 0.3},
+          "vertices": 2000,
+          "edges": 4000,
+          "faces": 1950,
+          "materials": [
+            {"name": "Vase_Ceramic", "type": "PRINCIPLED", "baseColor": {"r": 0.9, "g": 0.88, "b": 0.85}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Picture_Frame"},
+        "response": {
+          "name": "Picture_Frame",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": -4.9, "z": 1.5},
+          "rotation": {"x": 1.5708, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.6, "y": 0.03, "z": 0.8},
+          "vertices": 80,
+          "edges": 160,
+          "faces": 70,
+          "materials": [
+            {"name": "Frame_Wood", "type": "PRINCIPLED", "baseColor": {"r": 0.2, "g": 0.15, "b": 0.1}},
+            {"name": "Frame_Glass", "type": "PRINCIPLED", "baseColor": {"r": 0.98, "g": 0.98, "b": 1.0}, "transmission": 0.9}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Mirror"},
+        "response": {
+          "name": "Mirror",
+          "type": "MESH",
+          "location": {"x": 4.9, "y": 0.0, "z": 1.4},
+          "rotation": {"x": 0.0, "y": 1.5708, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.03, "y": 0.8, "z": 1.2},
+          "vertices": 60,
+          "edges": 120,
+          "faces": 50,
+          "materials": [
+            {"name": "Mirror_Frame", "type": "PRINCIPLED", "baseColor": {"r": 0.75, "g": 0.7, "b": 0.6}, "metallic": 1.0},
+            {"name": "Mirror_Surface", "type": "PRINCIPLED", "baseColor": {"r": 0.95, "g": 0.95, "b": 0.95}, "metallic": 1.0, "roughness": 0.0}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Room"},
+        "response": {
+          "name": "Room",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 10.0, "y": 10.0, "z": 3.0},
+          "vertices": 24,
+          "edges": 36,
+          "faces": 14,
+          "materials": [
+            {"name": "Room_Walls", "type": "PRINCIPLED", "baseColor": {"r": 0.95, "g": 0.95, "b": 0.92}},
+            {"name": "Room_Floor", "type": "PRINCIPLED", "baseColor": {"r": 0.35, "g": 0.2, "b": 0.1}},
+            {"name": "Room_Ceiling", "type": "PRINCIPLED", "baseColor": {"r": 1.0, "g": 1.0, "b": 1.0}}
+          ],
+          "modifiers": [],
+          "visible": true,
+          "selected": false
+        }
+      },
+      {
+        "match": {"object_name": "Character"},
+        "response": {
+          "name": "Character",
+          "type": "MESH",
+          "location": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "dimensions": {"x": 0.5, "y": 0.3, "z": 1.75},
+          "vertices": 125000,
+          "edges": 250000,
+          "faces": 124000,
+          "materials": [
+            {"name": "Skin", "type": "PRINCIPLED", "subsurface": 0.3},
+            {"name": "Eyes", "type": "PRINCIPLED"},
+            {"name": "Hair", "type": "PRINCIPLED"},
+            {"name": "Clothing", "type": "PRINCIPLED"}
+          ],
+          "modifiers": [
+            {"name": "Armature", "type": "ARMATURE"},
+            {"name": "Subdivision", "type": "SUBSURF", "levels": 1}
+          ],
+          "visible": true,
+          "selected": false,
+          "armature": {
+            "name": "Character_Rig",
+            "boneCount": 156,
+            "ikChains": ["IK_Leg.L", "IK_Leg.R", "IK_Arm.L", "IK_Arm.R"]
+          }
+        }
+      }
+    ],
+    "get_viewport_screenshot": [
+      {
+        "match": {},
+        "response": {
+          "success": true,
+          "resolution": {"width": 1920, "height": 1080},
+          "format": "PNG",
+          "size": 3145728,
+          "viewportShading": "MATERIAL",
+          "cameraView": false
+        }
+      }
+    ],
+    "execute_blender_code": [
+      {
+        "match": {},
+        "response": {
+          "success": true,
+          "output": "",
+          "executionTime": 0.05
+        }
+      }
+    ],
+    "get_polyhaven_categories": [
+      {
+        "match": {"asset_type": "textures"},
+        "response": {
+          "assetType": "textures",
+          "categories": [
+            {"name": "architectural", "count": 245, "subcategories": ["brick", "concrete", "plaster", "tiles"]},
+            {"name": "fabric", "count": 89, "subcategories": ["carpet", "cloth", "leather", "upholstery"]},
+            {"name": "floor", "count": 156, "subcategories": ["parquet", "tiles", "marble", "concrete"]},
+            {"name": "ground", "count": 178, "subcategories": ["dirt", "grass", "gravel", "sand"]},
+            {"name": "metal", "count": 134, "subcategories": ["bare", "painted", "rusted", "brushed"]},
+            {"name": "nature", "count": 267, "subcategories": ["bark", "leaves", "moss", "snow"]},
+            {"name": "rock", "count": 98, "subcategories": ["cliff", "cobblestone", "granite", "slate"]},
+            {"name": "wood", "count": 201, "subcategories": ["plywood", "planks", "veneer", "weathered"]}
+          ]
+        }
+      },
+      {
+        "match": {"asset_type": "hdris"},
+        "response": {
+          "assetType": "hdris",
+          "categories": [
+            {"name": "indoor", "count": 87, "subcategories": ["studio", "room", "warehouse", "museum"]},
+            {"name": "outdoor", "count": 312, "subcategories": ["urban", "nature", "sky", "sunset"]},
+            {"name": "night", "count": 45, "subcategories": ["city", "stars", "dusk"]}
+          ]
+        }
+      },
+      {
+        "match": {"asset_type": "models"},
+        "response": {
+          "assetType": "models",
+          "categories": [
+            {"name": "furniture", "count": 156},
+            {"name": "electronics", "count": 78},
+            {"name": "vegetation", "count": 234},
+            {"name": "architecture", "count": 89},
+            {"name": "vehicles", "count": 45}
+          ]
+        }
+      }
+    ],
+    "search_polyhaven_assets": [
+      {
+        "match": {"asset_type": "textures"},
+        "response": {
+          "assetType": "textures",
+          "results": [
+            {
+              "id": "wood_floor_deck",
+              "name": "Wood Floor Deck",
+              "category": "wood",
+              "tags": ["floor", "deck", "planks", "outdoor"],
+              "downloads": 125000,
+              "resolution": "8K",
+              "thumbnailUrl": "https://polyhaven.com/thumbs/wood_floor_deck.jpg"
+            },
+            {
+              "id": "wooden_planks",
+              "name": "Wooden Planks",
+              "category": "wood",
+              "tags": ["planks", "aged", "rustic"],
+              "downloads": 98000,
+              "resolution": "8K",
+              "thumbnailUrl": "https://polyhaven.com/thumbs/wooden_planks.jpg"
+            },
+            {
+              "id": "brick_wall_001",
+              "name": "Brick Wall",
+              "category": "architectural",
+              "tags": ["brick", "wall", "red"],
+              "downloads": 87000,
+              "resolution": "4K",
+              "thumbnailUrl": "https://polyhaven.com/thumbs/brick_wall_001.jpg"
+            },
+            {
+              "id": "concrete_floor",
+              "name": "Concrete Floor",
+              "category": "floor",
+              "tags": ["concrete", "industrial", "gray"],
+              "downloads": 76000,
+              "resolution": "8K",
+              "thumbnailUrl": "https://polyhaven.com/thumbs/concrete_floor.jpg"
+            }
+          ],
+          "totalCount": 1200
+        }
+      },
+      {
+        "match": {"asset_type": "hdris"},
+        "response": {
+          "assetType": "hdris",
+          "results": [
+            {
+              "id": "studio_small_09",
+              "name": "Studio Small 09",
+              "category": "indoor",
+              "tags": ["studio", "softbox", "product", "clean"],
+              "downloads": 234000,
+              "resolution": "16K",
+              "thumbnailUrl": "https://polyhaven.com/thumbs/studio_small_09.jpg"
+            },
+            {
+              "id": "photo_studio_loft_hall",
+              "name": "Photo Studio Loft Hall",
+              "category": "indoor",
+              "tags": ["studio", "loft", "windows", "natural"],
+              "downloads": 189000,
+              "resolution": "16K",
+              "thumbnailUrl": "https://polyhaven.com/thumbs/photo_studio_loft_hall.jpg"
+            },
+            {
+              "id": "sunflowers",
+              "name": "Sunflowers Field",
+              "category": "outdoor",
+              "tags": ["nature", "sunny", "field"],
+              "downloads": 156000,
+              "resolution": "8K",
+              "thumbnailUrl": "https://polyhaven.com/thumbs/sunflowers.jpg"
+            }
+          ],
+          "totalCount": 450
+        }
+      },
+      {
+        "match": {"asset_type": "models"},
+        "response": {
+          "assetType": "models",
+          "results": [
+            {
+              "id": "modern_office_chair",
+              "name": "Modern Office Chair",
+              "category": "furniture",
+              "tags": ["office", "ergonomic", "modern"],
+              "downloads": 45000,
+              "format": "GLTF",
+              "polyCount": 15000,
+              "thumbnailUrl": "https://polyhaven.com/thumbs/modern_office_chair.jpg"
+            },
+            {
+              "id": "wooden_dining_chair",
+              "name": "Wooden Dining Chair",
+              "category": "furniture",
+              "tags": ["dining", "wood", "classic"],
+              "downloads": 38000,
+              "format": "GLTF",
+              "polyCount": 8500,
+              "thumbnailUrl": "https://polyhaven.com/thumbs/wooden_dining_chair.jpg"
+            }
+          ],
+          "totalCount": 600
+        }
+      }
+    ],
+    "download_polyhaven_asset": [
+      {
+        "match": {},
+        "response": {
+          "success": true,
+          "imported": true,
+          "materialCreated": true
+        }
+      }
+    ],
+    "set_texture": [
+      {
+        "match": {},
+        "response": {
+          "success": true,
+          "mappingType": "UV",
+          "textureScale": {"x": 1.0, "y": 1.0},
+          "nodesCreated": ["Image Texture", "Normal Map", "Principled BSDF", "Material Output"]
+        }
+      }
+    ],
+    "search_sketchfab_models": [
+      {
+        "match": {},
+        "response": {
+          "results": [
+            {
+              "uid": "abc123def456",
+              "name": "3D Model Asset",
+              "author": "3d_artist",
+              "license": "CC-BY-4.0",
+              "polyCount": 45000,
+              "animated": false,
+              "downloadable": true,
+              "viewCount": 125000,
+              "likeCount": 3400
+            },
+            {
+              "uid": "ghi789jkl012",
+              "name": "Detailed Model",
+              "author": "designer_pro",
+              "license": "CC-BY-4.0",
+              "polyCount": 28000,
+              "animated": false,
+              "downloadable": true,
+              "viewCount": 89000,
+              "likeCount": 2100
+            },
+            {
+              "uid": "mno345pqr678",
+              "name": "Simple Asset",
+              "author": "model_maker",
+              "license": "CC-BY-NC-4.0",
+              "polyCount": 12000,
+              "animated": false,
+              "downloadable": true,
+              "viewCount": 67000,
+              "likeCount": 1800
+            }
+          ],
+          "totalCount": 15420,
+          "nextCursor": "eyJwYWdlIjogMn0="
+        }
+      }
+    ],
+    "download_sketchfab_model": [
+      {
+        "match": {},
+        "response": {
+          "success": true,
+          "imported": true,
+          "objectCount": 1,
+          "totalVertices": 45000,
+          "totalFaces": 42000,
+          "materials": ["Material_1", "Material_2"],
+          "hasAnimations": false
+        }
+      }
+    ],
+    "generate_hyper3d_model_via_text": [
+      {
+        "match": {},
+        "response": {
+          "success": true,
+          "jobId": "rodin_job_12345",
+          "status": "processing",
+          "estimatedTime": 120,
+          "queuePosition": 3
+        }
+      }
+    ],
+    "generate_hyper3d_model_via_images": [
+      {
+        "match": {},
+        "response": {
+          "success": true,
+          "jobId": "rodin_img_job_22222",
+          "status": "processing",
+          "estimatedTime": 180,
+          "queuePosition": 4
+        }
+      }
+    ],
+    "poll_rodin_job_status": [
+      {
+        "match": {},
+        "response": {
+          "status": "completed",
+          "progress": 100,
+          "modelReady": true,
+          "modelStats": {
+            "vertices": 12500,
+            "faces": 11800,
+            "textured": true
+          }
+        }
+      }
+    ],
+    "import_generated_asset": [
+      {
+        "match": {},
+        "response": {
+          "success": true,
+          "objectName": "Generated_Model",
+          "vertices": 12500,
+          "faces": 11800,
+          "imported": true,
+          "materials": ["Model_Material_1", "Model_Material_2"],
+          "location": {"x": 0, "y": 0, "z": 0},
+          "dimensions": {"x": 1.0, "y": 1.0, "z": 1.0}
+        }
+      }
+    ],
+    "generate_hunyuan3d_model": [
+      {
+        "match": {},
+        "response": {
+          "success": true,
+          "jobId": "hunyuan_job_33333",
+          "inputType": "text",
+          "status": "processing",
+          "estimatedTime": 75,
+          "modelVersion": "hunyuan3d-2.0"
+        }
+      }
+    ],
+    "poll_hunyuan_job_status": [
+      {
+        "match": {},
+        "response": {
+          "status": "completed",
+          "progress": 100,
+          "modelReady": true,
+          "modelStats": {
+            "vertices": 8500,
+            "faces": 7200,
+            "textured": true
+          }
+        }
+      }
+    ],
+    "import_generated_asset_hunyuan": [
+      {
+        "match": {},
+        "response": {
+          "success": true,
+          "objectName": "Hunyuan_Model",
+          "vertices": 8500,
+          "faces": 7200,
+          "imported": true,
+          "materials": ["Hunyuan_Material"],
+          "location": {"x": 0, "y": 0, "z": 0},
+          "dimensions": {"x": 1.0, "y": 1.0, "z": 1.0}
+        }
+      }
+    ]
+  }
+}

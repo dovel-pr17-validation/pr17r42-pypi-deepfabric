@@ -1,0 +1,63 @@
+name: Feature request
+description: Suggest something for DeepFabric to support or do better
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature requests are welcome. The more you can tell us about the use case behind the request, the better.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's missing or not working for you?
+      description: Describe the situation where DeepFabric falls short today.
+      placeholder: "When generating agent datasets, there's no way to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: What would you like DeepFabric to do?
+      description: Your idea for how DeepFabric could address this — a new config option, dataset type, CLI command, output format, anything.
+      placeholder: "It would be useful if the config supported..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What have you tried instead?
+      description: Workarounds you've considered, or other tools you've looked at for this.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which area does this relate to?
+      options:
+        - Dataset generation
+        - Topic graph / diversity
+        - Tool execution (Spin / VFS)
+        - Training utilities
+        - Evaluation
+        - CLI / config
+        - Output formats
+        - Provider support
+        - Other
+
+  - type: dropdown
+    id: priority-signal
+    attributes:
+      label: How is this blocking you?
+      options:
+        - It's blocking production use of DeepFabric
+        - It's slowing down my evaluation of DeepFabric
+        - It would be a nice improvement but I have a workaround
+        - Just an idea — low urgency
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: What you're building, the model you're training, or anything else relevant to the request.
